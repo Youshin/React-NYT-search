@@ -1,5 +1,5 @@
 # NYT-search
-Create a New York Times search to find articles
+Create a New York Times search to find articles<br>
 <b>Front-Team</b>
 <ul>
   <li>Create the layout for the page design. Use Bootstrap to customize our search page.</li>
