@@ -5,7 +5,7 @@ var startYear = 0;
 var endYear = 0;
 var authKey = 'b9f91d369ff59547cd47b931d8cbc56b:0:74623931';
 var numberRecord;
-var queryUrlBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key="+authKey;
+var queryUrlBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api_key="+ authKey;
 //Count article number
 
 var articleCounter =0;
