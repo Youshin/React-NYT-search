@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/xhrsteven/NYT-search#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.5",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^1.1.4"
   }
 }
