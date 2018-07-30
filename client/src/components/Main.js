@@ -51,7 +51,7 @@ class App extends Component {
             .then(this.getSavedArticles())
     }
 
-    renderArticles = ()=>{
+    renderArticles= () =>{
         return this.state.articles.map(article =>(
             <Results 
                 _id={article._id}
@@ -101,7 +101,7 @@ class App extends Component {
                       <div className="panel-heading">
                         <h3 className="panel-title">
                           <strong>
-                            <i className="fa fa-download" aria-hidden="true" />Saved Articles
+                            <i className="fa fa-download" aria-hidden="true" /> Saved Articles
                           </strong>
                         </h3>
                       </div>
@@ -117,7 +117,7 @@ class App extends Component {
 
               <footer>
                 <hr />
-                <p className="pull right">
+                <p className="pull-right">
                   <i className="fa fa-github" aria-hidden="true" /> <a href="https://github.com/xhrsteven/React-NYT-search">
                     Reference
                   </a>
@@ -129,4 +129,4 @@ class App extends Component {
     
 }
 
-export default Main;
+export default App;
