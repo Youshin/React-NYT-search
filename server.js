@@ -37,7 +37,6 @@ app.use(router);
 
 const db = process.env.MONGODB_URI || 'mongodb://localhost/nyt-react';
 mongoose.connect(db,
-    { useNewUrlParser: true },
     (err)=>{
     if (err) throw err;
     console.log('connection is successful')
