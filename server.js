@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const bluebird = require('bluebird');
+const MONGODB_URI = require('./config/key');
 
 const PORT = process.env.PORT || 3001;
 mongoose.Promise = bluebird;
@@ -27,15 +28,18 @@ const router = express.Router();
 
 router.get('/api/saved', articleController.find);
 router.post('/api/saved', articleController.insert);
-router.delete('/api/saved/:id', articleController.delete);
+router.delete('/api/saved/:id', articleController.delete); 
 router.get('/*', (req,res) =>{
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.use(router);
 
-const db = process.env.MONGODB_URI || 'mongodb://localhost/nyt-react';
-mongoose.connect(db, (err)=>{
+const db = MONGODB_URI || 'mongodb://localhost/nyt-react';
+mongoose.connect(db, {
+    useMongoClient:true
+},
+    (err)=>{
     if (err) throw err;
     console.log('connection is successful')
 })
