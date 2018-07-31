@@ -36,9 +36,7 @@ router.get('/*', (req,res) =>{
 app.use(router);
 
 const db = MONGODB_URI || 'mongodb://localhost/nyt-react';
-mongoose.connect(db, {
-    useMongoClient:true
-},
+mongoose.connect(db,
     (err)=>{
     if (err) throw err;
     console.log('connection is successful')
