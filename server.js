@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const bluebird = require('bluebird');
-const MONGODB_URI = require('./config/key');
+// const MONGODB_URI = require('./config/key');
 
 const PORT = process.env.PORT || 3001;
 mongoose.Promise = bluebird;
@@ -35,7 +35,7 @@ router.get('/*', (req,res) =>{
 
 app.use(router);
 
-const db = MONGODB_URI || 'mongodb://localhost/nyt-react';
+const db = process.env.MONGODB_URI || 'mongodb://localhost/nyt-react';
 mongoose.connect(db,
     (err)=>{
     if (err) throw err;
