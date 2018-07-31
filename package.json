@@ -1,11 +1,14 @@
 {
-  "name": "React-NYT-search",
+  "name": "React_NYT_search",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "server": "node server.js",
+    "client": "cd client && npm run start",
+    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,9 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongoose": "^5.2.5"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "nodemon": "^1.18.3"
   }
 }

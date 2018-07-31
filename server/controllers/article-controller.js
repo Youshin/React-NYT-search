@@ -1,23 +1,30 @@
-let Article = require('../controllers/article-controller')
+var Article = require('../models/Articles')
 
 module.exports = {
     find: function (req, res) {
-        Article.findAll().then(function (doc) {
+        console.log("Gathering saved articles from the db");
+        Article.find().then(function (doc) {
             res.json(doc);
-          }).catch((err) =>{console.log(res.json(err))});
+          }).catch(function (err) {
+              res.json(err);
+            });
       },
 
     insert: function (req, res) {
+        console.log("Adding saved artice to the db");
+        console.log("req.body: ", req.body);
         Article.create(req.body).then(function (doc) {
             res.json(doc);
-          }).catch((err)=>{console.log(res.json(err))});
+          }).catch((err)=>{res.json(err)});
       },
     
     delete: function (req, res) {
+        console.log("Deleting a saved article from the db");
         Article.remove({
-            _id: req.paras.id
+            _id: req.params.id
         }).then(function (doc) {
             res.json(doc);
-          }).catch((err) =>{console.log(err)});
+            console.log("doc: ", doc);
+          }).catch((err) =>{res.json(err)});
       }
 }

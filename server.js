@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const bluebird = require('bluebird');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 mongoose.Promise = bluebird;
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -27,9 +27,9 @@ const router = express.Router();
 
 router.get('/api/saved', articleController.find);
 router.post('/api/saved', articleController.insert);
-router.delete('/api/delete', articleController.delete);
-router.get('/', (req,res) =>{
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
+router.delete('/api/saved/:id', articleController.delete);
+router.get('/*', (req,res) =>{
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.use(router);
